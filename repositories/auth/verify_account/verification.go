@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/srv-cashpay/auth/entity"
+	"github.com/srv-api/auth/entity"
 )
 
 func (u *verifyRepository) UpdateUserVerificationStatus(user *entity.UserVerified) error {

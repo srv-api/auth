@@ -1,7 +1,7 @@
 package reset_password
 
 import (
-	s "github.com/srv-cashpay/auth/services/auth/reset_password"
+	s "github.com/srv-api/auth/services/auth/reset_password"
 
 	"github.com/labstack/echo/v4"
 )

@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
+	res "github.com/srv-api/util/s/response"
 
 	"github.com/labstack/echo/v4"
 )

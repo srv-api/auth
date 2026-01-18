@@ -1,7 +1,7 @@
 package auth
 
 import (
-	dto "github.com/srv-cashpay/auth/dto/auth"
+	dto "github.com/srv-api/auth/dto/auth"
 )
 
 func (u *authService) Profile(req dto.ProfileRequest) (dto.ProfileResponse, error) {

@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
 )
 
 func (s *verifyService) ResetPassword(req dto.Reset) error {

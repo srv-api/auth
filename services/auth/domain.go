@@ -1,10 +1,10 @@
 package auth
 
 import (
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	m "github.com/srv-cashpay/middlewares/middlewares"
+	dto "github.com/srv-api/auth/dto/auth"
+	m "github.com/srv-api/middlewares/middlewares"
 
-	r "github.com/srv-cashpay/auth/repositories/auth"
+	r "github.com/srv-api/auth/repositories/auth"
 )
 
 type AuthService interface {

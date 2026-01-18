@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/go-playground/validator/v10"
-	res "github.com/srv-cashpay/util/s/response"
+	res "github.com/srv-api/util/s/response"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
+	dto "github.com/srv-api/auth/dto/auth"
 
 	"github.com/labstack/echo/v4"
 )

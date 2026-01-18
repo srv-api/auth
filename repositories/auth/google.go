@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/srv-cashpay/auth/entity"
-	entitymerchant "github.com/srv-cashpay/merchant/entity"
-	util "github.com/srv-cashpay/util/s"
+	"github.com/srv-api/auth/entity"
+	entitymerchant "github.com/srv-api/merchant/entity"
+	util "github.com/srv-api/util/s"
 	"gorm.io/gorm"
 )
 

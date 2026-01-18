@@ -2,10 +2,10 @@ package tax
 
 import (
 	"github.com/labstack/echo/v4"
-	dto "github.com/srv-cashpay/merchant/dto"
-	m "github.com/srv-cashpay/middlewares/middlewares"
+	dto "github.com/srv-api/merchant/dto"
+	m "github.com/srv-api/middlewares/middlewares"
 
-	r "github.com/srv-cashpay/merchant/repositories/tax"
+	r "github.com/srv-api/merchant/repositories/tax"
 )
 
 type TaxService interface {

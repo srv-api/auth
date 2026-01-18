@@ -1,10 +1,10 @@
 package auth
 
 import (
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	"github.com/srv-cashpay/auth/entity"
-	r "github.com/srv-cashpay/auth/repositories/auth/reset_password"
-	m "github.com/srv-cashpay/middlewares/middlewares"
+	dto "github.com/srv-api/auth/dto/auth"
+	"github.com/srv-api/auth/entity"
+	r "github.com/srv-api/auth/repositories/auth/reset_password"
+	m "github.com/srv-api/middlewares/middlewares"
 )
 
 type ResetService interface {

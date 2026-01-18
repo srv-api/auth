@@ -8,9 +8,9 @@ import (
 	"net/url"
 	"os"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	"github.com/srv-cashpay/auth/entity"
-	util "github.com/srv-cashpay/util/s"
+	dto "github.com/srv-api/auth/dto/auth"
+	"github.com/srv-api/auth/entity"
+	util "github.com/srv-api/util/s"
 	"google.golang.org/api/idtoken"
 )
 

@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	"github.com/srv-cashpay/auth/entity"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	"github.com/srv-api/auth/entity"
+	res "github.com/srv-api/util/s/response"
 )
 
 func (u *verifyService) VerifyUserByToken(req dto.VerificationRequest) (*entity.UserVerified, error) {

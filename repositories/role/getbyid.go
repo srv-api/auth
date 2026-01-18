@@ -1,8 +1,8 @@
 package tax
 
 import (
-	dto "github.com/srv-cashpay/merchant/dto"
-	"github.com/srv-cashpay/merchant/entity"
+	dto "github.com/srv-api/merchant/dto"
+	"github.com/srv-api/merchant/entity"
 )
 
 func (b *taxRepository) GetById(req dto.GetByIdRequest) (*dto.TaxResponse, error) {

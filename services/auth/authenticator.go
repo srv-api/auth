@@ -1,8 +1,8 @@
 package auth
 
 import (
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
 )
 
 func (s *authService) Authenticator(req dto.AuthenticatorRequest) (dto.AuthenticatorResponse, error) {

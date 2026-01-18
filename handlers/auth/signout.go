@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	res "github.com/srv-cashpay/util/s/response"
+	res "github.com/srv-api/util/s/response"
 
 	"github.com/labstack/echo/v4"
 )

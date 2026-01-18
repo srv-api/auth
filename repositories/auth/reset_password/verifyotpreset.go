@@ -3,8 +3,8 @@ package repositories
 import (
 	"fmt"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	"github.com/srv-cashpay/auth/entity"
+	dto "github.com/srv-api/auth/dto/auth"
+	"github.com/srv-api/auth/entity"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

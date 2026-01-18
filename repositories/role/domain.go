@@ -1,7 +1,7 @@
 package tax
 
 import (
-	dto "github.com/srv-cashpay/merchant/dto"
+	dto "github.com/srv-api/merchant/dto"
 
 	"gorm.io/gorm"
 )

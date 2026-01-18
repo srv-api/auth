@@ -2,21 +2,21 @@ package routes
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/srv-cashpay/auth/configs"
-	h_auth "github.com/srv-cashpay/auth/handlers/auth"
-	r_auth "github.com/srv-cashpay/auth/repositories/auth"
-	s_auth "github.com/srv-cashpay/auth/services/auth"
-	"github.com/srv-cashpay/middlewares/middlewares"
+	"github.com/srv-api/auth/configs"
+	h_auth "github.com/srv-api/auth/handlers/auth"
+	r_auth "github.com/srv-api/auth/repositories/auth"
+	s_auth "github.com/srv-api/auth/services/auth"
+	"github.com/srv-api/middlewares/middlewares"
 
-	h_verify "github.com/srv-cashpay/auth/handlers/auth/verify_account"
-	r_verify "github.com/srv-cashpay/auth/repositories/auth/verify_account"
-	s_verify "github.com/srv-cashpay/auth/services/auth/verify_account"
+	h_verify "github.com/srv-api/auth/handlers/auth/verify_account"
+	r_verify "github.com/srv-api/auth/repositories/auth/verify_account"
+	s_verify "github.com/srv-api/auth/services/auth/verify_account"
 
-	h_verifyReset "github.com/srv-cashpay/auth/handlers/auth/reset_password"
-	r_verifyReset "github.com/srv-cashpay/auth/repositories/auth/reset_password"
-	s_verifyReset "github.com/srv-cashpay/auth/services/auth/reset_password"
+	h_verifyReset "github.com/srv-api/auth/handlers/auth/reset_password"
+	r_verifyReset "github.com/srv-api/auth/repositories/auth/reset_password"
+	s_verifyReset "github.com/srv-api/auth/services/auth/reset_password"
 
-	h_location "github.com/srv-cashpay/auth/location"
+	h_location "github.com/srv-api/auth/location"
 )
 
 var (

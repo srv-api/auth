@@ -1,8 +1,8 @@
 package reset_password
 
 import (
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	res "github.com/srv-api/util/s/response"
 
 	"github.com/labstack/echo/v4"
 )

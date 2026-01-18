@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"github.com/srv-cashpay/auth/entity"
+	"github.com/srv-api/auth/entity"
 )
 
 func (u *verifyResetRepository) UpdateUserPassword(userID string, newPassword string) error {

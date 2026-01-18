@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strconv"
 
-	dto "github.com/srv-cashpay/merchant/dto"
-	"github.com/srv-cashpay/merchant/entity"
+	dto "github.com/srv-api/merchant/dto"
+	"github.com/srv-api/merchant/entity"
 )
 
 func (r *taxRepository) Create(req dto.TaxRequest) (dto.TaxResponse, error) {

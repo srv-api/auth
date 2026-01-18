@@ -1,8 +1,8 @@
 package auth
 
 import (
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	"github.com/srv-cashpay/auth/entity"
+	dto "github.com/srv-api/auth/dto/auth"
+	"github.com/srv-api/auth/entity"
 )
 
 func (b *authRepository) GetById(req dto.GetByIdRequest) (*dto.GetProfileResponse, error) {

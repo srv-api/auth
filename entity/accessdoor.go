@@ -3,7 +3,7 @@ package entity
 import (
 	"time"
 
-	"github.com/srv-cashpay/merchant/entity"
+	"github.com/srv-api/merchant/entity"
 	"gorm.io/gorm"
 )
 

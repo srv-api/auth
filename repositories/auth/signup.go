@@ -3,10 +3,10 @@ package auth
 import (
 	"time"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	"github.com/srv-cashpay/auth/entity"
-	entitymerchant "github.com/srv-cashpay/merchant/entity"
-	util "github.com/srv-cashpay/util/s"
+	dto "github.com/srv-api/auth/dto/auth"
+	"github.com/srv-api/auth/entity"
+	entitymerchant "github.com/srv-api/merchant/entity"
+	util "github.com/srv-api/util/s"
 )
 
 func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, error) {

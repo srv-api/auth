@@ -3,7 +3,7 @@ package repositories
 import (
 	"time"
 
-	"github.com/srv-cashpay/auth/entity"
+	"github.com/srv-api/auth/entity"
 )
 
 func (u *verifyResetRepository) SavePasswordResetToken(userID string, token string, otp string, expiryDuration time.Duration) (*entity.PasswordResetToken, error) {

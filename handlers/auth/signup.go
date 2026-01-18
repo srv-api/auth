@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"github.com/labstack/echo/v4"
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
+	res "github.com/srv-api/util/s/response"
 )
 
 func (h *domainHandler) Signup(c echo.Context) error {

@@ -3,8 +3,8 @@ package auth
 import (
 	"fmt"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
 )
 
 func (u *authService) UpdateProfile(req dto.UpdateProfileRequest) (dto.UpdateProfileResponse, error) {

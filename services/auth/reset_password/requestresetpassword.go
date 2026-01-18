@@ -4,8 +4,8 @@ import (
 	"strings"
 	"time"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
 )
 
 func (s *verifyService) RequestResetPassword(req dto.ResetPasswordRequest) (dto.ResetPasswordResponse, error) {

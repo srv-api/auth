@@ -5,9 +5,9 @@ import (
 	"math"
 	"strings"
 
-	dto "github.com/srv-cashpay/merchant/dto"
-	"github.com/srv-cashpay/merchant/entity"
-	"github.com/srv-cashpay/merchant/helpers"
+	dto "github.com/srv-api/merchant/dto"
+	"github.com/srv-api/merchant/entity"
+	"github.com/srv-api/merchant/helpers"
 )
 
 func (r *taxRepository) Get(req *dto.Pagination) (RepositoryResult, int) {

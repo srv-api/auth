@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/labstack/echo/v4"
-	dto "github.com/srv-cashpay/merchant/dto"
+	dto "github.com/srv-api/merchant/dto"
 )
 
 func (s *taxService) Get(context echo.Context, req *dto.Pagination) dto.Response {

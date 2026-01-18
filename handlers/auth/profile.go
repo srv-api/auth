@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"github.com/labstack/echo/v4"
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	res "github.com/srv-api/util/s/response"
 )
 
 func (h *domainHandler) Profile(c echo.Context) error {

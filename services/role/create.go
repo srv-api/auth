@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	dto "github.com/srv-cashpay/merchant/dto"
+	dto "github.com/srv-api/merchant/dto"
 	"golang.org/x/crypto/blake2b"
 )
 

@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	util "github.com/srv-cashpay/util/s"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	util "github.com/srv-api/util/s"
+	res "github.com/srv-api/util/s/response"
 	"golang.org/x/crypto/blake2b"
 	"gopkg.in/gomail.v2"
 )

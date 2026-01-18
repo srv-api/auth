@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	dto "github.com/srv-cashpay/auth/dto/auth"
-	res "github.com/srv-cashpay/util/s/response"
+	dto "github.com/srv-api/auth/dto/auth"
+	res "github.com/srv-api/util/s/response"
 )
 
 func (b *domainHandler) UpdateProfile(c echo.Context) error {

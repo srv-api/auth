@@ -1,7 +1,7 @@
 package verify_account
 
 import (
-	s "github.com/srv-cashpay/auth/services/auth/verify_account"
+	s "github.com/srv-api/auth/services/auth/verify_account"
 
 	"github.com/labstack/echo/v4"
 )
