@@ -5,6 +5,7 @@ go 1.24.4
 toolchain go1.24.12
 
 require (
+	github.com/didintri196/go-zklib v0.0.0-20190713034630-addb6130e4cd
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.15.0
@@ -18,10 +19,13 @@ require (
 	gorm.io/gorm v1.25.12
 )
 
+require github.com/canhlinh/go-binary-pack v0.0.0-20181203110405-72348cf47f32 // indirect
+
 require (
 	cloud.google.com/go/auth v0.18.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
+	github.com/canhlinh/gozk v0.0.0-20250721083631-a631ea7e93da
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.12 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
