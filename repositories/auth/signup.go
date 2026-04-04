@@ -14,6 +14,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 	user := entity.AccessDoor{
 		ID:           req.ID,
 		FullName:     req.FullName,
+		Gender:       req.Gender,
 		Whatsapp:     req.Whatsapp,
 		Email:        req.Email,
 		Password:     req.Password,
@@ -49,6 +50,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 	response := dto.SignupResponse{
 		ID:           user.ID,
 		FullName:     user.FullName,
+		Gender:       user.Gender,
 		Whatsapp:     user.Whatsapp,
 		Email:        user.Email,
 		Password:     user.Password,

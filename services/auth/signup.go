@@ -55,6 +55,7 @@ func (u *authService) Signup(req dto.SignupRequest) (dto.SignupResponse, error) 
 		Otp:          GenerateRandomNumeric(4),
 		Whatsapp:     encryptedWhatsapp,
 		FullName:     req.FullName,
+		Gender:       req.Gender,
 		Email:        encryptedEmail,
 		Password:     req.Password,
 		Token:        util.GenerateRandomString(),
@@ -75,6 +76,7 @@ func (u *authService) Signup(req dto.SignupRequest) (dto.SignupResponse, error) 
 		Whatsapp:     createdUser.Whatsapp,
 		Email:        req.Email, // Send back the plain email
 		FullName:     createdUser.FullName,
+		Gender:       createdUser.Gender,
 		Password:     createdUser.Password,
 		Token:        createdUser.Token,
 		AccessRoleID: createdUser.AccessRoleID,

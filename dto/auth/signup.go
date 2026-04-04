@@ -7,6 +7,7 @@ type SignupRequest struct {
 	Email        string `json:"email" form:"email" validate:"required,email"`
 	Password     string `json:"password" form:"password" validate:"required,password"`
 	FullName     string `json:"full_name"`
+	Gender       string `json:"gender"`
 	Token        string `json:"token"`
 	AccessRoleID string `json:"access_role_id"`
 }
@@ -14,6 +15,7 @@ type SignupRequest struct {
 type SignupResponse struct {
 	ID           string `json:"id"`
 	FullName     string `json:"full_name"`
+	Gender       string `json:"gender"`
 	Whatsapp     string `json:"whatsapp" form:"whatsapp" validate:"required,whatsapp"`
 	Email        string `json:"email" form:"email" validate:"required,email"`
 	Password     string `json:"-" form:"password" validate:"required,password"`
