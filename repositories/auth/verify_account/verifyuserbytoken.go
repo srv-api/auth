@@ -43,7 +43,7 @@ func (u *verifyRepository) VerifyUserByToken(req dto.VerificationRequest) (*dto.
 		MerchantID:     user.MerchantID,
 		FullName:       user.FullName,
 		Email:          user.Email,
-		Token:          userVerified.Token,
+		TokenVerified:  userVerified.Token,
 		Otp:            userVerified.Otp,
 		ExpiredAt:      userVerified.ExpiredAt,
 		Verified:       false,

@@ -50,12 +50,11 @@ func (u *verifyService) VerifyUserByToken(req dto.VerificationRequest) (*dto.Ver
 		MerchantID:    user.MerchantID,
 		FullName:      user.FullName,
 		Email:         user.Email,
-		Token:         user.Token,
 		Otp:           user.Otp,
 		ExpiredAt:     user.ExpiredAt,
 		Verified:      true,
 		StatusAccount: user.StatusAccount,
-		AccessToken:   accesstoken,
+		Token:         accesstoken,
 		RefreshToken:  refreshtoken,
 		TokenVerified: user.Token,
 	}, nil
