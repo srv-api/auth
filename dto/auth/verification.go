@@ -31,7 +31,7 @@ type VerificationResponse struct {
 	Verified       bool      `json:"verified"`
 	StatusAccount  bool      `json:"status_account"`
 	AccountExpired time.Time `json:"account_expired,omitempty"`
-	Token          string    `json:"token"`
+	AccessToken    string    `json:"access_token"`
 	RefreshToken   string    `json:"refresh_token"`
 	TokenVerified  string    `json:"token_verified,omitempty"`
 }

@@ -100,7 +100,7 @@ func (u *authService) SigninByPhoneNumber(req dto.SigninRequest) (*dto.SigninRes
 		return nil, res.ErrorBuilder(&res.ErrorConstant.VerifyPassword, err)
 	}
 
-	token, err := u.jwt.GenerateToken(user.ID, user.FullName, user.Merchant.ID)
+	accesstoken, err := u.jwt.GenerateToken(user.ID, user.FullName, user.Merchant.ID)
 	refreshtoken, err := u.jwt.GenerateRefreshToken(user.ID, user.FullName, user.Merchant.ID)
 
 	return &dto.SigninResponse{
@@ -108,7 +108,7 @@ func (u *authService) SigninByPhoneNumber(req dto.SigninRequest) (*dto.SigninRes
 		MerchantID:    user.Merchant.ID,
 		FullName:      user.FullName,
 		Email:         user.Email,
-		Token:         token,
+		AccessToken:   accesstoken,
 		RefreshToken:  refreshtoken,
 		TokenVerified: user.Verified.Token,
 	}, nil
@@ -163,7 +163,7 @@ func (u *authService) Signin(req dto.SigninRequest) (*dto.SigninResponse, error)
 		return nil, res.ErrorBuilder(&res.ErrorConstant.VerifyPassword, err)
 	}
 
-	token, err := u.jwt.GenerateToken(user.ID, user.FullName, user.Merchant.ID)
+	accesstoken, err := u.jwt.GenerateToken(user.ID, user.FullName, user.Merchant.ID)
 	refreshtoken, err := u.jwt.GenerateRefreshToken(user.ID, user.FullName, user.Merchant.ID)
 
 	if err != nil {
@@ -181,7 +181,7 @@ func (u *authService) Signin(req dto.SigninRequest) (*dto.SigninResponse, error)
 		MerchantID:    user.Merchant.ID,
 		FullName:      user.FullName,
 		Email:         decryptedEmail,
-		Token:         token,
+		AccessToken:   accesstoken,
 		RefreshToken:  refreshtoken,
 		TokenVerified: user.Verified.Token,
 	}, nil

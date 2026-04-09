@@ -54,8 +54,7 @@ func (u *verifyService) VerifyUserByToken(req dto.VerificationRequest) (*dto.Ver
 		ExpiredAt:     user.ExpiredAt,
 		Verified:      true,
 		StatusAccount: user.StatusAccount,
-		Token:         accesstoken,
+		AccessToken:   accesstoken,
 		RefreshToken:  refreshtoken,
-		TokenVerified: user.Token,
 	}, nil
 }
