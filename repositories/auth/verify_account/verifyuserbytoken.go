@@ -27,8 +27,8 @@ func (u *verifyRepository) VerifyUserByToken(req dto.VerificationRequest) (*dto.
 		return nil, errors.New("OTP has expired")
 	}
 
-	// ✅ Ambil data user lengkap dari tabel UserMerchant atau AccessDoor
-	var user entity.UserMerchant // atau entity.AccessDoor
+	// ✅ Gunakan tabel AccessDoor (bukan UserMerchant)
+	var user entity.AccessDoor
 	if err := u.DB.Where("id = ?", userVerified.UserID).First(&user).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, errors.New("User not found")
@@ -40,7 +40,7 @@ func (u *verifyRepository) VerifyUserByToken(req dto.VerificationRequest) (*dto.
 	return &dto.VerificationResponse{
 		ID:             userVerified.ID,
 		UserID:         user.ID,
-		MerchantID:     user.Merchant.ID,
+		MerchantID:     user.MerchantID,
 		FullName:       user.FullName,
 		Email:          user.Email,
 		Token:          userVerified.Token,

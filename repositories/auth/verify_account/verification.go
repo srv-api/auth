@@ -8,7 +8,7 @@ import (
 )
 
 func (u *verifyRepository) UpdateUserVerificationStatus(user *dto.VerificationResponse) error {
-	// Update status verified dan account_expired
+	// Update status verified di tabel UserVerified
 	now := time.Now()
 
 	err := u.DB.Model(&entity.UserVerified{}).
@@ -16,15 +16,15 @@ func (u *verifyRepository) UpdateUserVerificationStatus(user *dto.VerificationRe
 		Updates(map[string]interface{}{
 			"verified":        true,
 			"status_account":  true,
-			"account_expired": now.AddDate(0, 6, 0), // 6 bulan
+			"account_expired": now.AddDate(0, 6, 0),
 		}).Error
 
 	if err != nil {
 		return err
 	}
 
-	// ✅ Update juga status di tabel UserMerchant/AccessDoor
-	err = u.DB.Model(&entity.UserMerchant{}).
+	// ✅ Update status suspended di tabel AccessDoor
+	err = u.DB.Model(&entity.AccessDoor{}).
 		Where("id = ?", user.UserID).
 		Update("suspended", false).Error
 
