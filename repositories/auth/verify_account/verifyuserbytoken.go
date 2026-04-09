@@ -1,29 +1,53 @@
 package repositories
 
 import (
-	"fmt"
+	"errors"
 	"time"
 
 	dto "github.com/srv-api/auth/dto/auth"
 	"github.com/srv-api/auth/entity"
 
 	"gorm.io/gorm"
-	"gorm.io/gorm/clause"
 )
 
-func (u *verifyRepository) VerifyUserByToken(req dto.VerificationRequest) (*entity.UserVerified, error) {
-	var user entity.UserVerified
+func (u *verifyRepository) VerifyUserByToken(req dto.VerificationRequest) (*dto.VerificationResponse, error) {
+	var userVerified entity.UserVerified
 	now := time.Now()
 
-	if err := u.DB.Clauses(clause.OnConflict{
-		Columns:   []clause.Column{{Name: "token"}},
-		DoUpdates: clause.Assignments(map[string]interface{}{"verified": true, "status_account": true, "account_expired": now.Add(16 * 24 * time.Hour)}),
-	}).Where("token = ?", req.Token).Where("otp = ?", req.Otp).First(&user).Error; err != nil {
+	// Cari UserVerified berdasarkan token dan otp
+	if err := u.DB.Where("token = ? AND otp = ?", req.Token, req.Otp).First(&userVerified).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
-			return nil, fmt.Errorf("User not found with the given verification token")
+			return nil, errors.New("Invalid verification token or OTP")
 		}
 		return nil, err
 	}
 
-	return &user, nil
+	// Cek expired
+	if now.After(userVerified.ExpiredAt) {
+		return nil, errors.New("OTP has expired")
+	}
+
+	// ✅ Ambil data user lengkap dari tabel UserMerchant atau AccessDoor
+	var user entity.UserMerchant // atau entity.AccessDoor
+	if err := u.DB.Where("id = ?", userVerified.UserID).First(&user).Error; err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, errors.New("User not found")
+		}
+		return nil, err
+	}
+
+	// ✅ Return response dengan data lengkap
+	return &dto.VerificationResponse{
+		ID:             userVerified.ID,
+		UserID:         user.ID,
+		MerchantID:     user.Merchant.ID,
+		FullName:       user.FullName,
+		Email:          user.Email,
+		Token:          userVerified.Token,
+		Otp:            userVerified.Otp,
+		ExpiredAt:      userVerified.ExpiredAt,
+		Verified:       false,
+		StatusAccount:  user.Suspended,
+		AccountExpired: userVerified.AccountExpired,
+	}, nil
 }

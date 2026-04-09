@@ -10,8 +10,8 @@ import (
 )
 
 type DomainRepository interface {
-	UpdateUserVerificationStatus(user *entity.UserVerified) error
-	VerifyUserByToken(req dto.VerificationRequest) (*entity.UserVerified, error)
+	UpdateUserVerificationStatus(user *dto.VerificationResponse) error
+	VerifyUserByToken(req dto.VerificationRequest) (*dto.VerificationResponse, error)
 	ResendVerifyUserByToken(req dto.ResendVerificationRequest) (*entity.UserVerified, error)
 }
 

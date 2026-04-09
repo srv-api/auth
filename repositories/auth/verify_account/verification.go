@@ -1,36 +1,32 @@
 package repositories
 
 import (
-	"fmt"
 	"time"
 
+	dto "github.com/srv-api/auth/dto/auth"
 	"github.com/srv-api/auth/entity"
 )
 
-func (u *verifyRepository) UpdateUserVerificationStatus(user *entity.UserVerified) error {
-	// Replace the following code with your actual logic to update user verification status in the database
-	// Example: err := userRepository.UpdateVerificationStatus(user.ID)
+func (u *verifyRepository) UpdateUserVerificationStatus(user *dto.VerificationResponse) error {
+	// Update status verified dan account_expired
+	now := time.Now()
 
-	// Simulate updating user verification status (replace with your actual logic)
-	user.Verified = true
-
-	// In a real-world scenario, you would use a database query to update the user's verification status
-	// Example using GORM:
-	err := u.DB.Model(&entity.UserVerified{}).Where("id = ?", user.ID).
+	err := u.DB.Model(&entity.UserVerified{}).
+		Where("id = ?", user.ID).
 		Updates(map[string]interface{}{
 			"verified":        true,
 			"status_account":  true,
-			"account_expired": time.Now().AddDate(0, 6, 0), //.Add(16 * 24 * time.Hour) 16 hari
+			"account_expired": now.AddDate(0, 6, 0), // 6 bulan
 		}).Error
+
 	if err != nil {
-		// Handle the error appropriately (e.g., log it, return it, etc.)
 		return err
 	}
-	// Check for errors and return them
-	if user.ID == "invalid_user_id" {
-		return fmt.Errorf("user not found")
-	}
 
-	// Check for errors and return them
-	return nil
+	// ✅ Update juga status di tabel UserMerchant/AccessDoor
+	err = u.DB.Model(&entity.UserMerchant{}).
+		Where("id = ?", user.UserID).
+		Update("suspended", false).Error
+
+	return err
 }

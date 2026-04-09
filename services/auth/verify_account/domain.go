@@ -8,7 +8,7 @@ import (
 )
 
 type VerifyService interface {
-	VerifyUserByToken(req dto.VerificationRequest) (*entity.UserVerified, error)
+	VerifyUserByToken(req dto.VerificationRequest) (*dto.VerificationResponse, error)
 	ResendVerifyUserByToken(req dto.ResendVerificationRequest) (*entity.UserVerified, error)
 }
 
