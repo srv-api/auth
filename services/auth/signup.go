@@ -2,6 +2,7 @@ package auth
 
 import (
 	"crypto/tls"
+	"errors"
 	"fmt"
 	"math/rand"
 	"strings"
@@ -25,6 +26,12 @@ func (u *authService) Signup(req dto.SignupRequest) (dto.SignupResponse, error) 
 	}
 
 	req.Whatsapp = FormatWhatsappNumber(req.Whatsapp)
+
+	age, err := calculateAge(req.BirthDate)
+	if err != nil {
+		return dto.SignupResponse{}, res.ErrorBuilder(&res.ErrorConstant.BadRequest, err)
+	}
+	req.Age = age
 
 	// Encrypt the email
 	encryptedEmail, err := util.Encrypt(req.Email)
@@ -166,4 +173,30 @@ func generateSecureID() (string, error) {
 	}
 
 	return string(secureID), nil
+}
+
+func calculateAge(birthDateStr string) (int, error) {
+	if birthDateStr == "" {
+		return 0, errors.New("birthdate is required")
+	}
+
+	// Parse tanggal lahir, asumsikan format YYYY-MM-DD
+	birthDate, err := time.Parse("2006-01-02", birthDateStr)
+	if err != nil {
+		return 0, errors.New("invalid birthdate format, use YYYY-MM-DD")
+	}
+
+	now := time.Now()
+	age := now.Year() - birthDate.Year()
+
+	// Jika bulan ini belum melewati bulan lahir, atau bulan sama tapi tanggal belum lewat, kurangi 1
+	if now.Month() < birthDate.Month() || (now.Month() == birthDate.Month() && now.Day() < birthDate.Day()) {
+		age--
+	}
+
+	if age < 0 {
+		return 0, errors.New("birthdate cannot be in the future")
+	}
+
+	return age, nil
 }
