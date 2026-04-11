@@ -52,6 +52,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 		ID:           user.ID,
 		FullName:     user.FullName,
 		Gender:       user.Gender,
+		Age:          user.Age,
 		Whatsapp:     user.Whatsapp,
 		Email:        user.Email,
 		Password:     user.Password,
