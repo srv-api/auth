@@ -20,6 +20,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 		Password:     req.Password,
 		AccessRoleID: req.AccessRoleID,
 		MerchantID:   util.GenerateRandomString(),
+		Age:          req.Age,
 	}
 
 	if err := r.DB.Save(&user).Error; err != nil {
