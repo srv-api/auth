@@ -31,10 +31,9 @@ func (r *authRepository) Create(user *entity.AccessDoor) error {
 	}
 
 	// Buat merchant
-	merchant := entitymerchant.MerchantDetail{
-		ID:         util.GenerateRandomString(),
-		UserID:     user.ID,
-		CurrencyID: 1,
+	merchant := entitymerchant.UserDetail{
+		ID:     util.GenerateRandomString(),
+		UserID: user.ID,
 	}
 	if err := r.DB.Save(&merchant).Error; err != nil {
 		return err

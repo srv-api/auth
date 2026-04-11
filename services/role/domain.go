@@ -5,7 +5,7 @@ import (
 	dto "github.com/srv-api/merchant/dto"
 	m "github.com/srv-api/middlewares/middlewares"
 
-	r "github.com/srv-api/merchant/repositories/tax"
+	r "github.com/srv-api/auth/repositories/role"
 )
 
 type TaxService interface {

@@ -1,15 +1,11 @@
 module github.com/srv-api/auth
 
-go 1.24.4
-
-toolchain go1.24.12
+go 1.25.1
 
 require (
-	github.com/didintri196/go-zklib v0.0.0-20190713034630-addb6130e4cd
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.15.0
-	github.com/srv-api/merchant v0.0.0-20260118100625-2157c2d7a13f
 	github.com/srv-api/middlewares v0.0.0-20260118094353-3c21604ff12e
 	github.com/srv-api/util v0.0.0-20260118105025-cdb334ac3c2f
 	golang.org/x/crypto v0.46.0
@@ -19,13 +15,10 @@ require (
 	gorm.io/gorm v1.25.12
 )
 
-require github.com/canhlinh/go-binary-pack v0.0.0-20181203110405-72348cf47f32 // indirect
-
 require (
 	cloud.google.com/go/auth v0.18.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
-	github.com/canhlinh/gozk v0.0.0-20250721083631-a631ea7e93da
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.12 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
@@ -55,6 +48,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.9.4 // indirect
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e // indirect
+	github.com/srv-api/merchant v0.0.0-20260411114757-d06ec06fc758 // indirect
 	github.com/streadway/amqp v1.1.0 // indirect
 	github.com/teris-io/shortid v0.0.0-20220617161101-71ec9f2aa569 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
