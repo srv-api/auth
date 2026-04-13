@@ -32,13 +32,13 @@ func (u *verifyService) VerifyUserByToken(req dto.VerificationRequest) (*dto.Ver
 	// ✅ Generate tokens - PASTIKAN user.FullName dan user.Merchant.ID tersedia
 	// Jika user dari repository tidak memiliki FullName, Anda perlu mengambil data dari tabel UserMerchant/AccessDoor
 
-	// Opsi 1: Jika user sudah memiliki FullName dan MerchantID
-	accesstoken, err := u.jwt.GenerateToken(user.UserID, user.FullName, user.MerchantID)
+	// Opsi 1: Jika user sudah memiliki FullName dan DetailID
+	accesstoken, err := u.jwt.GenerateToken(user.UserID, user.FullName, user.DetailID)
 	if err != nil {
 		return nil, errors.New("Failed to generate access token")
 	}
 
-	refreshtoken, err := u.jwt.GenerateRefreshToken(user.UserID, user.FullName, user.MerchantID)
+	refreshtoken, err := u.jwt.GenerateRefreshToken(user.UserID, user.FullName, user.DetailID)
 	if err != nil {
 		return nil, errors.New("Failed to generate refresh token")
 	}
@@ -47,7 +47,7 @@ func (u *verifyService) VerifyUserByToken(req dto.VerificationRequest) (*dto.Ver
 	return &dto.VerificationResponse{
 		ID:            user.ID,
 		UserID:        user.UserID,
-		MerchantID:    user.MerchantID,
+		DetailID:      user.DetailID,
 		FullName:      user.FullName,
 		Email:         user.Email,
 		Otp:           user.Otp,

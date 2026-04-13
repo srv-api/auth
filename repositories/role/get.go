@@ -5,9 +5,9 @@ import (
 	"math"
 	"strings"
 
-	dto "github.com/srv-api/merchant/dto"
-	"github.com/srv-api/merchant/entity"
-	"github.com/srv-api/merchant/helpers"
+	dto "github.com/srv-api/detail/dto"
+	"github.com/srv-api/detail/entity"
+	"github.com/srv-api/detail/helpers"
 )
 
 func (r *taxRepository) Get(req *dto.Pagination) (RepositoryResult, int) {
@@ -20,7 +20,7 @@ func (r *taxRepository) Get(req *dto.Pagination) (RepositoryResult, int) {
 	offset := (req.Page - 1) * req.Limit
 
 	// Ambil data sesuai limit, offset, dan urutan
-	find := r.DB.Where("merchant_id = ?", req.MerchantID).Limit(req.Limit).Offset(offset).Order(req.Sort)
+	find := r.DB.Where("detail_id = ?", req.DetailID).Limit(req.Limit).Offset(offset).Order(req.Sort)
 
 	// Generate where query untuk search
 	if req.Searchs != nil {
@@ -50,7 +50,7 @@ func (r *taxRepository) Get(req *dto.Pagination) (RepositoryResult, int) {
 	req.Rows = taxs
 
 	// Hitung total data
-	if errCount := r.DB.Model(&entity.Tax{}).Where("merchant_id = ?", req.MerchantID).Count(&totalRows).Error; errCount != nil {
+	if errCount := r.DB.Model(&entity.Tax{}).Where("detail_id = ?", req.DetailID).Count(&totalRows).Error; errCount != nil {
 		return RepositoryResult{Error: errCount}, totalPages
 	}
 

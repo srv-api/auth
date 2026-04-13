@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/srv-api/auth/entity"
-	entitymerchant "github.com/srv-api/merchant/entity"
+	entitymerchant "github.com/srv-api/detail/entity"
 	util "github.com/srv-api/util/s"
 	"gorm.io/gorm"
 )

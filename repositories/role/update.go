@@ -1,8 +1,8 @@
 package tax
 
 import (
-	"github.com/srv-api/merchant/dto"
-	"github.com/srv-api/merchant/entity"
+	"github.com/srv-api/detail/dto"
+	"github.com/srv-api/detail/entity"
 )
 
 func (b *taxRepository) Update(req dto.TaxUpdateRequest) (dto.TaxUpdateResponse, error) {
@@ -14,7 +14,7 @@ func (b *taxRepository) Update(req dto.TaxUpdateRequest) (dto.TaxUpdateResponse,
 		UpdatedBy:     req.UpdatedBy,
 		UserID:        req.UserID,
 		Description:   req.Description,
-		MerchantID:    req.MerchantID,
+		DetailID:      req.DetailID,
 	}
 
 	// Cek apakah produk ada terlebih dahulu
@@ -37,7 +37,7 @@ func (b *taxRepository) Update(req dto.TaxUpdateRequest) (dto.TaxUpdateResponse,
 		Status:        updateTax.Status,
 		UpdatedBy:     updateTax.UpdatedBy,
 		UserID:        updateTax.UserID,
-		MerchantID:    updateTax.MerchantID,
+		DetailID:      updateTax.DetailID,
 		Description:   updateTax.Description,
 	}
 

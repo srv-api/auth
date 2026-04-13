@@ -19,7 +19,7 @@ type RefreshTokenResponse struct {
 
 type SigninResponse struct {
 	ID            string `json:"id"`
-	MerchantID    string `json:"merchant_id"`
+	DetailID      string `json:"detail_id"`
 	FullName      string `json:"full_name"`
 	Email         string `json:"email"`
 	AccessToken   string `json:"access_token"`

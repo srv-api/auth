@@ -1,6 +1,6 @@
 package tax
 
-import "github.com/srv-api/merchant/dto"
+import "github.com/srv-api/detail/dto"
 
 func (b *taxService) Update(req dto.TaxUpdateRequest) (dto.TaxUpdateResponse, error) {
 	request := dto.TaxUpdateRequest{

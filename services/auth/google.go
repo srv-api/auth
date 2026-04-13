@@ -100,7 +100,7 @@ func (s *authService) SignInWithGoogle(req dto.GoogleSignInRequest) (*dto.AuthRe
 	// 7. Kembalikan response
 	return &dto.AuthResponse{
 		ID:            user.ID,
-		MerchantID:    user.Merchant.ID,
+		DetailID:      user.Merchant.ID,
 		FullName:      user.FullName,
 		Whatsapp:      user.Whatsapp,
 		Email:         user.Email,
@@ -235,7 +235,7 @@ func (s *authService) SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.
 
 	return &dto.AuthResponse{
 		ID:            user.ID,
-		MerchantID:    user.Merchant.ID,
+		DetailID:      user.Merchant.ID,
 		FullName:      user.FullName,
 		Whatsapp:      user.Whatsapp,
 		Email:         user.Email,

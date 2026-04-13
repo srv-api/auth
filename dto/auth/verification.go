@@ -23,7 +23,7 @@ type ResendVerificationResponse struct {
 type VerificationResponse struct {
 	ID             string    `json:"id"`
 	UserID         string    `json:"user_id"`
-	MerchantID     string    `json:"merchant_id,omitempty"`
+	DetailID       string    `json:"detail_id,omitempty"`
 	FullName       string    `json:"full_name,omitempty"`
 	Email          string    `json:"email,omitempty"`
 	Otp            string    `json:"otp,omitempty"`

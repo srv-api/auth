@@ -3,7 +3,7 @@ package entity
 import (
 	"time"
 
-	"github.com/srv-api/merchant/entity"
+	"github.com/srv-api/detail/entity"
 	"gorm.io/gorm"
 )
 
@@ -15,7 +15,7 @@ type AccessDoor struct {
 	Whatsapp       string            `gorm:"uniqueIndex;type:varchar(200)" json:"whatsapp"`
 	Email          string            `gorm:"uniqueIndex;type:varchar(150)" json:"email"`
 	Password       string            `gorm:"password" json:"password"`
-	MerchantID     string            `gorm:"merchant_id" json:"merchant_id"`
+	DetailID       string            `gorm:"detail_id" json:"detail_id"`
 	GoogleID       string            `gorm:"google_id" json:"google_id"`
 	Provider       string            `gorm:"provider" json:"provider"`
 	AccessRoleID   string            `gorm:"access_role_id" json:"access_role_id"`

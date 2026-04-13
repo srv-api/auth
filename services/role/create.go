@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	dto "github.com/srv-api/merchant/dto"
+	dto "github.com/srv-api/detail/dto"
 	"golang.org/x/crypto/blake2b"
 )
 
@@ -20,7 +20,7 @@ func (s *taxService) Create(req dto.TaxRequest) (dto.TaxResponse, error) {
 		Description:   req.Description,
 		Status:        req.Status,
 		UserID:        req.UserID,
-		MerchantID:    req.MerchantID,
+		DetailID:      req.DetailID,
 		CreatedBy:     req.CreatedBy,
 	}
 
@@ -47,7 +47,7 @@ func (s *taxService) Create(req dto.TaxRequest) (dto.TaxResponse, error) {
 		TaxPercentage: req.TaxPercentage,
 		Description:   created.Description,
 		Status:        statusString,
-		MerchantID:    created.MerchantID,
+		DetailID:      created.DetailID,
 		CreatedBy:     created.CreatedBy,
 	}
 

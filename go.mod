@@ -6,7 +6,6 @@ require (
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.15.0
-	github.com/srv-api/merchant v0.0.0-20260411114757-d06ec06fc758
 	github.com/srv-api/middlewares v0.0.0-20260118094353-3c21604ff12e
 	github.com/srv-api/util v0.0.0-20260118105025-cdb334ac3c2f
 	golang.org/x/crypto v0.46.0

@@ -5,20 +5,20 @@ import (
 	"fmt"
 	"strconv"
 
-	dto "github.com/srv-api/merchant/dto"
-	"github.com/srv-api/merchant/entity"
+	dto "github.com/srv-api/detail/dto"
+	"github.com/srv-api/detail/entity"
 )
 
 func (r *taxRepository) Create(req dto.TaxRequest) (dto.TaxResponse, error) {
-	// Insert or update the auto_increment value based on merchant_id
+	// Insert or update the auto_increment value based on detail_id
 	var autoIncrement int
 	err := r.DB.Raw(`
-		INSERT INTO merchant_auto_increments (merchant_id, next_increment)
+		INSERT INTO merchant_auto_increments (detail_id, next_increment)
 		VALUES (?, 1)
-		ON CONFLICT (merchant_id) DO UPDATE
+		ON CONFLICT (detail_id) DO UPDATE
 		SET next_increment = merchant_auto_increments.next_increment + 1
 		RETURNING next_increment - 1;
-	`, req.MerchantID).Scan(&autoIncrement).Error
+	`, req.DetailID).Scan(&autoIncrement).Error
 
 	if err != nil {
 		return dto.TaxResponse{}, err
@@ -38,7 +38,7 @@ func (r *taxRepository) Create(req dto.TaxRequest) (dto.TaxResponse, error) {
 		TaxPercentage: req.TaxPercentage,
 		Status:        req.Status,
 		UserID:        req.UserID,
-		MerchantID:    req.MerchantID,
+		DetailID:      req.DetailID,
 		CreatedBy:     req.CreatedBy,
 		Description:   req.Description,
 	}
@@ -70,7 +70,7 @@ func (r *taxRepository) Create(req dto.TaxRequest) (dto.TaxResponse, error) {
 		Tax:           create.Tax,
 		TaxPercentage: create.TaxPercentage,
 		UserID:        create.UserID,
-		MerchantID:    create.MerchantID,
+		DetailID:      create.DetailID,
 		Description:   create.Description,
 		Status:        statusString,
 		CreatedBy:     create.CreatedBy,

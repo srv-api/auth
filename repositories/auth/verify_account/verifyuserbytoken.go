@@ -40,7 +40,7 @@ func (u *verifyRepository) VerifyUserByToken(req dto.VerificationRequest) (*dto.
 	return &dto.VerificationResponse{
 		ID:             userVerified.ID,
 		UserID:         user.ID,
-		MerchantID:     user.MerchantID,
+		DetailID:       user.DetailID,
 		FullName:       user.FullName,
 		Email:          user.Email,
 		TokenVerified:  userVerified.Token,

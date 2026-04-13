@@ -105,7 +105,7 @@ func (u *authService) SigninByPhoneNumber(req dto.SigninRequest) (*dto.SigninRes
 
 	return &dto.SigninResponse{
 		ID:            user.ID,
-		MerchantID:    user.Merchant.ID,
+		DetailID:      user.Merchant.ID,
 		FullName:      user.FullName,
 		Email:         user.Email,
 		AccessToken:   accesstoken,
@@ -178,7 +178,7 @@ func (u *authService) Signin(req dto.SigninRequest) (*dto.SigninResponse, error)
 
 	return &dto.SigninResponse{
 		ID:            user.ID,
-		MerchantID:    user.Merchant.ID,
+		DetailID:      user.Merchant.ID,
 		FullName:      user.FullName,
 		Email:         decryptedEmail,
 		AccessToken:   accesstoken,

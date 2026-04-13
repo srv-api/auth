@@ -12,7 +12,7 @@ type GoogleSignInWebRequest struct {
 
 type AuthResponse struct {
 	ID            string `json:"id"`
-	MerchantID    string `json:"merchant_id"`
+	DetailID      string `json:"detail_id"`
 	Whatsapp      string `json:"whatsapp"`
 	FullName      string `json:"full_name"`
 	Email         string `json:"email"`

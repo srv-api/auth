@@ -5,7 +5,7 @@ import (
 
 	dto "github.com/srv-api/auth/dto/auth"
 	"github.com/srv-api/auth/entity"
-	entitymerchant "github.com/srv-api/merchant/entity"
+	entitymerchant "github.com/srv-api/detail/entity"
 	util "github.com/srv-api/util/s"
 )
 
@@ -19,7 +19,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 		Email:        req.Email,
 		Password:     req.Password,
 		AccessRoleID: req.AccessRoleID,
-		MerchantID:   util.GenerateRandomString(),
+		DetailID:     util.GenerateRandomString(),
 		Age:          req.Age,
 	}
 
@@ -28,7 +28,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 	}
 
 	merchant := entitymerchant.UserDetail{
-		ID:           user.MerchantID,
+		ID:           user.DetailID,
 		UserID:       user.ID,
 		MinAge:       18,
 		MaxAge:       60,
