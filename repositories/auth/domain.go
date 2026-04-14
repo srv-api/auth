@@ -4,6 +4,7 @@ import (
 	"sync"
 
 	dto "github.com/srv-api/auth/dto/auth"
+	detail "github.com/srv-api/detail/entity"
 
 	"github.com/srv-api/auth/entity"
 
@@ -11,6 +12,7 @@ import (
 )
 
 type DomainRepository interface {
+	CheckMerchantDetail(DetailID string, merchantDetail *detail.UserDetail) error
 	Signup(req dto.SignupRequest) (dto.SignupResponse, error)
 	Authenticator(req dto.AuthenticatorRequest) (dto.AuthenticatorResponse, error)
 	Signin(req dto.SigninRequest) (*entity.AccessDoor, error)
@@ -24,6 +26,7 @@ type DomainRepository interface {
 	FindByEncryptedEmail(encryptedEmail string) (*entity.AccessDoor, error)
 	Create(user *entity.AccessDoor) error
 	UpdateWhatsapp(userID string, phone string) error
+	SaveFile(req dto.ProfilePictureRequest) (dto.ProfilePictureResponse, error)
 }
 
 type authRepository struct {

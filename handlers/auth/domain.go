@@ -16,6 +16,7 @@ type DomainHandler interface {
 	UpdateProfile(c echo.Context) error //UpdateProfile
 	GoogleSignIn(c echo.Context) error
 	GoogleSignInWeb(c echo.Context) error
+	UploadImage(c echo.Context) error
 }
 
 type domainHandler struct {

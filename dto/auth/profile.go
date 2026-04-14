@@ -1,5 +1,7 @@
 package auth
 
+import "mime/multipart"
+
 type ProfileRequest struct {
 	ID     string `json:"id"`
 	UserID string `json:"user_id"`
@@ -13,6 +15,21 @@ type ProfileResponse struct {
 	Whatsapp string `json:"whatsapp"`
 	Email    string `json:"email"`
 	Gender   string `json:"gender"`
+}
+
+type ProfilePictureResponse struct {
+	FilePath string `json:"file_path"`
+}
+
+type ProfilePictureRequest struct {
+	ID          string `json:"id"`
+	File        *multipart.FileHeader
+	CreatedBy   string `json:"created_by"`
+	UpdatedBy   string `json:"updated_by"`
+	ProductID   string `json:"product_id"`
+	UserID      string `json:"user_id"`
+	DetailID    string `json:"detail_id"`
+	Destination string `json:"destination"`
 }
 
 type UpdateProfileRequest struct {

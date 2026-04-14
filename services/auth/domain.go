@@ -8,6 +8,7 @@ import (
 )
 
 type AuthService interface {
+	Upload(req dto.ProfilePictureRequest) (dto.ProfilePictureResponse, error)
 	Signup(req dto.SignupRequest) (dto.SignupResponse, error)
 	Authenticator(req dto.AuthenticatorRequest) (dto.AuthenticatorResponse, error)
 	Signin(req dto.SigninRequest) (*dto.SigninResponse, error)
