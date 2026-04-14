@@ -27,6 +27,7 @@ type DomainRepository interface {
 	Create(user *entity.AccessDoor) error
 	UpdateWhatsapp(userID string, phone string) error
 	SaveFile(req dto.ProfilePictureRequest) (dto.ProfilePictureResponse, error)
+	GetPicture(req dto.GetProfilePictureRequest) (*dto.GetProfilePictureResponse, error)
 }
 
 type authRepository struct {
