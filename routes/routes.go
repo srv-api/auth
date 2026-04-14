@@ -65,7 +65,7 @@ func New() *echo.Echo {
 	{
 		profile.GET("/profile", authH.Profile)
 		profile.PUT("/profile/update", authH.UpdateProfile)
-		profile.PUT("/profile/upload/:id", authH.UploadImage)
+		profile.POST("/profile/upload/:id", authH.UploadImage)
 	}
 
 	logout := e.Group("/auth")
