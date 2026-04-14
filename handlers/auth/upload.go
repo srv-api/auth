@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -28,9 +29,10 @@ func (h *domainHandler) UploadImage(c echo.Context) error {
 		return res.ErrorBuilder(&res.ErrorConstant.InternalServerError, nil).Send(c)
 	}
 
-	idUint, err := res.IsNumber(c, "id")
-	if err != nil {
-		return res.ErrorBuilder(&res.ErrorConstant.BadRequest, err).Send(c)
+	id := c.Param("id")
+	if id == "" {
+		return res.ErrorBuilder(&res.ErrorConstant.BadRequest,
+			fmt.Errorf("id cannot be empty")).Send(c)
 	}
 
 	// Parse file from request
@@ -47,7 +49,7 @@ func (h *domainHandler) UploadImage(c echo.Context) error {
 
 	// Prepare request object
 	req := dto.ProfilePictureRequest{
-		ID:        idUint,
+		ID:        id,
 		UserID:    userID,
 		UpdatedBy: updatedBy,
 		File:      file,
