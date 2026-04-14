@@ -6,9 +6,8 @@ require (
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.15.0
-	github.com/srv-api/detail v0.0.0-20260413092508-8e35c73ffc1e
-	github.com/srv-api/middlewares v0.0.0-20260118094353-3c21604ff12e
-	github.com/srv-api/util v0.0.0-20260118105025-cdb334ac3c2f
+	github.com/srv-api/detail v0.0.0-20260413094535-9b45d0bd6528
+	github.com/srv-api/util v0.0.0-20260413114728-4851b9a0c2f3
 	golang.org/x/crypto v0.46.0
 	google.golang.org/api v0.260.0
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
@@ -20,6 +19,7 @@ require (
 	cloud.google.com/go/auth v0.18.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
+	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.12 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
@@ -47,9 +47,10 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/olivere/elastic/v7 v7.0.32 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/sirupsen/logrus v1.9.4 // indirect
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e // indirect
-	github.com/srv-api/merchant v0.0.0-20260411114757-d06ec06fc758 // indirect
+	github.com/srv-api/middlewares v0.0.0-20260413091150-3878b6563895 // indirect
 	github.com/streadway/amqp v1.1.0 // indirect
 	github.com/teris-io/shortid v0.0.0-20220617161101-71ec9f2aa569 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect

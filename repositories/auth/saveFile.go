@@ -67,7 +67,7 @@ func (r *authRepository) CheckMerchantDetail(DetailID string, merchantDetail *de
 
 	// Periksa apakah semua kolom penting sudah terisi
 	if merchantDetail.Latitude == 0 || merchantDetail.Longitude == 0 {
-		return res.ErrorBuilder(&res.ErrorConstant.MerchantNoProvide, nil)
+		return res.ErrorBuilder(&res.ErrorConstant.DetailNoProvide, nil)
 	}
 
 	return nil
