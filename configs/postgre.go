@@ -62,6 +62,7 @@ func InitDB() *gorm.DB {
 		&entity.Country{},
 		&entity.Authenticator{},
 		&entity.PasswordResetToken{},
+		&entity.UploadedFile{},
 	)
 
 	return db
