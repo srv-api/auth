@@ -38,7 +38,7 @@ func (h *domainHandler) UploadImage(c echo.Context) error {
 	}
 	log.Printf("UpdatedBy: %s", updatedBy)
 
-	DetailID, ok := c.Get("DetailID").(string)
+	DetailID, ok := c.Get("DetailId").(string)
 	if !ok {
 		log.Println("Error: DetailID not found in context")
 		return res.ErrorBuilder(&res.ErrorConstant.InternalServerError, nil).Send(c)
