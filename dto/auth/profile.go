@@ -11,12 +11,19 @@ type ProfileRequest struct {
 }
 
 type ProfileResponse struct {
-	ID             string `json:"id"`
-	FullName       string `json:"full_name"`
-	Whatsapp       string `json:"whatsapp"`
-	Email          string `json:"email"`
-	Gender         string `json:"gender"`
-	ProfilePicture string `json:"profile_picture"`
+	ID             string    `json:"id"`
+	FullName       string    `json:"full_name"`
+	Whatsapp       string    `json:"whatsapp"`
+	Email          string    `json:"email"`
+	Gender         string    `json:"gender"`
+	ProfilePicture string    `json:"profile_picture"`
+	Gallery        []Gallery `json:"gallery"`
+}
+
+type Gallery struct {
+	ID       string `json:"id"`
+	FileName string `json:"file_name"`
+	FilePath string `json:"file_path"`
 }
 
 type ProfilePictureResponse struct {

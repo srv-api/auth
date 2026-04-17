@@ -29,6 +29,15 @@ func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, e
 	if existingUser.ProfilePicture.FilePath != "" {
 		profilePicture = baseURL + existingUser.ProfilePicture.FilePath
 	}
+	// Convert gallery to DTO
+	gallery := make([]dto.Gallery, 0)
+	for _, img := range existingUser.File {
+		gallery = append(gallery, dto.Gallery{
+			ID:       img.ID,
+			FileName: img.FileName,
+			FilePath: baseURL + img.FilePath,
+		})
+	}
 
 	resp := dto.ProfileResponse{
 		ID:             existingUser.ID,
@@ -36,6 +45,7 @@ func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, e
 		Whatsapp:       encryptedWhatsapp,
 		Email:          encryptedEmail,
 		ProfilePicture: profilePicture,
+		Gallery:        gallery,
 	}
 
 	return resp, nil
