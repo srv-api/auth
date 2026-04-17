@@ -9,7 +9,7 @@ import (
 func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, error) {
 	var existingUser entity.AccessDoor
 
-	if err := u.DB.Preload("ProfilePicture").Where("id = ?", req.UserID).First(&existingUser).Error; err != nil {
+	if err := u.DB.Preload("UploadedFile").Where("id = ?", req.UserID).First(&existingUser).Error; err != nil {
 		return dto.ProfileResponse{}, err
 	}
 
