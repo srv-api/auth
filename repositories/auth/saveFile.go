@@ -50,7 +50,7 @@ func (r *authRepository) SaveFile(req dto.ProfilePictureRequest) (dto.ProfilePic
 	log.Printf("File copied successfully, bytes: %d", bytesWritten)
 
 	// Prepare metadata for database
-	fileRecord := entity.UploadedFile{
+	fileRecord := entity.ProfilePicture{
 		FileName:  filepath.Base(req.Destination),
 		FilePath:  req.Destination,
 		DetailID:  req.DetailID,

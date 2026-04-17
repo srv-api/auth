@@ -6,7 +6,7 @@ import (
 )
 
 func (b *authRepository) GetPicture(req dto.GetProfilePictureRequest) (*dto.GetProfilePictureResponse, error) {
-	tr := entity.UploadedFile{
+	tr := entity.ProfilePicture{
 		FileName: req.FileName,
 	}
 
