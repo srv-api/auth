@@ -18,6 +18,9 @@ type DomainHandler interface {
 	GoogleSignInWeb(c echo.Context) error
 	GetPicture(c echo.Context) error
 	UploadImage(c echo.Context) error
+	Gallery(c echo.Context) error
+	GetGallery(c echo.Context) error
+	DeleteGallery(c echo.Context) error
 }
 
 type domainHandler struct {

@@ -73,5 +73,13 @@ func New() *echo.Echo {
 	{
 		logout.POST("/logout", authH.Signout)
 	}
+
+	galleryGroup := e.Group("/gallery", middlewares.AuthorizeJWT(JWT))
+	{
+		galleryGroup.POST("/upload", authH.Gallery) // Upload multiple files
+		galleryGroup.GET("/list", authH.GetGallery) // Get all gallery
+		galleryGroup.DELETE("/:id", authH.DeleteGallery)
+	}
+
 	return e
 }
