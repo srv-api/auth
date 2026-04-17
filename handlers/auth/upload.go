@@ -11,8 +11,6 @@ import (
 )
 
 func (h *domainHandler) UploadImage(c echo.Context) error {
-	log.Println("=== Starting UploadImage ===")
-
 	// Extract ID from path parameter
 	id := c.Param("id")
 	log.Printf("ID from path: %s", id)

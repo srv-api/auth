@@ -28,6 +28,11 @@ type DomainRepository interface {
 	UpdateWhatsapp(userID string, phone string) error
 	SaveFile(req dto.ProfilePictureRequest) (dto.ProfilePictureResponse, error)
 	GetPicture(req dto.GetProfilePictureRequest) (*dto.GetProfilePictureResponse, error)
+	SaveGalleryFile(req dto.SingleGalleryRequest) (dto.GalleryResponse, error)
+	GetUserGallery(userID string) ([]entity.File, error)
+	DeleteGalleryFile(fileID, userID string) error
+	GetGalleryByID(fileID, userID string) (*entity.File, error)
+	DeleteAllUserGallery(userID string) error
 }
 
 type authRepository struct {

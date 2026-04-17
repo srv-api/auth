@@ -44,6 +44,7 @@ func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, e
 		FullName:       existingUser.FullName,
 		Whatsapp:       encryptedWhatsapp,
 		Email:          encryptedEmail,
+		Gender:         existingUser.Gender,
 		ProfilePicture: profilePicture,
 		Gallery:        gallery,
 	}

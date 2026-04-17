@@ -19,6 +19,12 @@ type AuthService interface {
 	RefreshAccessToken(req dto.RefreshTokenRequest) (string, error)
 	SignInWithGoogle(req dto.GoogleSignInRequest) (*dto.AuthResponse, error)
 	SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.AuthResponse, error)
+	Gallery(req dto.GalleryUploadRequest) (dto.MultipleGalleryResponse, error)
+	processSingleGalleryFile(req dto.SingleGalleryRequest) (dto.GalleryResponse, error)
+
+	GetUserGallery(userID string) ([]dto.GetGalleryResponse, error)
+
+	DeleteGalleryFile(fileID, userID string) error
 }
 
 type authService struct {
