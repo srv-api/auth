@@ -67,8 +67,8 @@ func New() *echo.Echo {
 		profile.PUT("/profile/update", authH.UpdateProfile)
 		profile.PUT("/profile/upload/:id", authH.UploadImage)
 	}
-	e.GET("/profile/uploads/:file_name", authH.GetPicture)
-
+	// e.GET("/profile/uploads/:file_name", authH.GetPicture)
+	e.Static("/profile/uploads", "profile/uploads")
 	logout := e.Group("/auth")
 	{
 		logout.POST("/logout", authH.Signout)
