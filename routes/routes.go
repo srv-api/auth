@@ -67,18 +67,18 @@ func New() *echo.Echo {
 		profile.PUT("/profile/update", authH.UpdateProfile)
 		profile.PUT("/profile/upload/:id", authH.UploadImage)
 	}
-	// e.GET("/profile/uploads/:file_name", authH.GetPicture)
-	e.Static("/profile/uploads", "profile/uploads")
+	e.GET("/profile/uploads/gallery/:file_name", authH.GetPicture)
+	// e.Static("/profile/uploads", "profile/uploads")
 	logout := e.Group("/auth")
 	{
 		logout.POST("/logout", authH.Signout)
 	}
 
-	galleryGroup := e.Group("/gallery", middlewares.AuthorizeJWT(JWT))
+	galleryGroup := e.Group("/profile", middlewares.AuthorizeJWT(JWT))
 	{
-		galleryGroup.POST("/upload", authH.Gallery) // Upload multiple files
-		galleryGroup.GET("/list", authH.GetGallery) // Get all gallery
-		galleryGroup.DELETE("/:id", authH.DeleteGallery)
+		galleryGroup.POST("/upload/gallery", authH.Gallery)    // Upload multiple files
+		galleryGroup.GET("/uploads/gallery", authH.GetGallery) // Get all gallery
+		galleryGroup.DELETE("/uploads/gallery/:id", authH.DeleteGallery)
 	}
 
 	return e
