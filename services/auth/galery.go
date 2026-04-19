@@ -158,7 +158,7 @@ func (s *authService) GetUserGallery(userID string) ([]dto.GetGalleryResponse, e
 			UserID:      file.UserID,
 			DetailID:    file.DetailID,
 			FileName:    file.FileName,
-			FilePath:    "http://103.150.227.223:2356/" + file.FilePath,
+			FilePath:    "http://103.150.227.223:2356/box/" + file.FilePath,
 			DataAccount: file.DataAccount,
 			CreatedAt:   file.CreatedAt,
 		})
