@@ -47,3 +47,7 @@ type GetGalleryResponse struct {
 	DataAccount string    `json:"data_account"`
 	CreatedAt   time.Time `json:"created_at"`
 }
+
+type GetPictureGalleryRequest struct {
+	FilePath string `param:"file_path" validate:"required"`
+}

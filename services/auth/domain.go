@@ -21,9 +21,8 @@ type AuthService interface {
 	SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.AuthResponse, error)
 	Gallery(req dto.GalleryUploadRequest) (dto.MultipleGalleryResponse, error)
 	processSingleGalleryFile(req dto.SingleGalleryRequest) (dto.GalleryResponse, error)
-
 	GetUserGallery(userID string) ([]dto.GetGalleryResponse, error)
-
+	GetPictureGallery(req dto.GetPictureGalleryRequest) (*dto.GetGalleryResponse, error)
 	DeleteGalleryFile(fileID, userID string) error
 }
 

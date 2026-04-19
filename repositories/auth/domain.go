@@ -28,6 +28,7 @@ type DomainRepository interface {
 	UpdateWhatsapp(userID string, phone string) error
 	SaveFile(req dto.ProfilePictureRequest) (dto.ProfilePictureResponse, error)
 	GetPicture(req dto.GetProfilePictureRequest) (*dto.GetProfilePictureResponse, error)
+	GetPictureGallery(req dto.GetPictureGalleryRequest) (*dto.GetGalleryResponse, error)
 	SaveGalleryFile(req dto.SingleGalleryRequest) (dto.GalleryResponse, error)
 	GetUserGallery(userID string) ([]entity.File, error)
 	DeleteGalleryFile(fileID, userID string) error

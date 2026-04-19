@@ -17,6 +17,7 @@ type DomainHandler interface {
 	GoogleSignIn(c echo.Context) error
 	GoogleSignInWeb(c echo.Context) error
 	GetPicture(c echo.Context) error
+	GetPictureGallery(c echo.Context) error
 	UploadImage(c echo.Context) error
 	Gallery(c echo.Context) error
 	GetGallery(c echo.Context) error
