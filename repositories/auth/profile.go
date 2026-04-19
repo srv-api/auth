@@ -24,7 +24,7 @@ func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, e
 	if err != nil {
 		return dto.ProfileResponse{}, err
 	}
-	baseURL := "http://103.150.227.223:2356/profile/"
+	baseURL := "http://103.150.227.223:2356/box/"
 	profilePicture := ""
 	if existingUser.ProfilePicture.FilePath != "" {
 		profilePicture = baseURL + existingUser.ProfilePicture.FilePath
