@@ -9,7 +9,7 @@ import (
 func (b *domainHandler) GetPictureGallery(c echo.Context) error {
 	var req dto.GetPictureGalleryRequest
 
-	idUint, err := res.IsNumber(c, "file_name")
+	idUint, err := res.IsNumber(c, "file_path")
 	if err != nil {
 		return res.ErrorBuilder(&res.ErrorConstant.BadRequest, err).Send(c)
 	}
