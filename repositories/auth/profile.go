@@ -24,7 +24,9 @@ func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, e
 	if err != nil {
 		return dto.ProfileResponse{}, err
 	}
-	baseURL := "http://103.150.227.223:2356/box/"
+	baseURL := "http://103.150.227.223:2356/profile/"
+	galleryURL := "http://103.150.227.223:2356/box/"
+
 	profilePicture := ""
 	if existingUser.ProfilePicture.FilePath != "" {
 		profilePicture = baseURL + existingUser.ProfilePicture.FilePath
@@ -35,7 +37,7 @@ func (u *authRepository) Profile(req dto.ProfileRequest) (dto.ProfileResponse, e
 		gallery = append(gallery, dto.Gallery{
 			ID:       img.ID,
 			FileName: img.FileName,
-			FilePath: baseURL + img.FilePath,
+			FilePath: galleryURL + img.FilePath,
 		})
 	}
 
