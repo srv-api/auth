@@ -22,6 +22,7 @@ type DomainRepository interface {
 	RefreshToken(req dto.RefreshTokenRequest) (*entity.AccessDoor, error)
 	SaveUser(user *entity.AccessDoor) error
 	Profile(req dto.ProfileRequest) (dto.ProfileResponse, error)
+	ProfileVisit(req dto.ProfileVisitRequest) (dto.ProfileResponse, error)
 	UpdateProfile(req dto.UpdateProfileRequest) (dto.UpdateProfileResponse, error)
 	FindByEncryptedEmail(encryptedEmail string) (*entity.AccessDoor, error)
 	Create(user *entity.AccessDoor) error

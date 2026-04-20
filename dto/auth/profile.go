@@ -10,6 +10,11 @@ type ProfileRequest struct {
 	ProfilePicture string `json:"profile_picture"`
 }
 
+type ProfileVisitRequest struct {
+	ID     string `json:"id"`
+	UserID string `json:"user_id"`
+}
+
 type ProfileResponse struct {
 	ID             string    `json:"id"`
 	FullName       string    `json:"full_name"`

@@ -64,6 +64,7 @@ func New() *echo.Echo {
 	profile := e.Group("/auth", middlewares.AuthorizeJWT(JWT))
 	{
 		profile.GET("/profile", authH.Profile)
+		profile.GET("/profile/visit/:id", authH.ProfileVisit)
 		profile.PUT("/profile/update", authH.UpdateProfile)
 		profile.PUT("/profile/upload/:id", authH.UploadImage)
 	}

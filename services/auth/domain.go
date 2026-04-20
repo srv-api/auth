@@ -15,6 +15,7 @@ type AuthService interface {
 	Signin(req dto.SigninRequest) (*dto.SigninResponse, error)
 	SigninByPhoneNumber(req dto.SigninRequest) (*dto.SigninResponse, error)
 	Profile(req dto.ProfileRequest) (dto.ProfileResponse, error)
+	ProfileVisit(req dto.ProfileVisitRequest) (dto.ProfileResponse, error)
 	UpdateProfile(req dto.UpdateProfileRequest) (dto.UpdateProfileResponse, error)
 	RefreshAccessToken(req dto.RefreshTokenRequest) (string, error)
 	SignInWithGoogle(req dto.GoogleSignInRequest) (*dto.AuthResponse, error)
