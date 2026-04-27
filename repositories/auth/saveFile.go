@@ -3,69 +3,61 @@ package auth
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"path/filepath"
+	"time"
 
 	dto "github.com/srv-api/auth/dto/auth"
 	"github.com/srv-api/auth/entity"
 	detail "github.com/srv-api/detail/entity"
 	res "github.com/srv-api/util/s/response"
+	"gorm.io/gorm/clause"
 )
 
 func (r *authRepository) SaveFile(req dto.ProfilePictureRequest) (dto.ProfilePictureResponse, error) {
-	log.Println("=== Repository SaveFile ===")
-	log.Printf("Destination: %s", req.Destination)
-
-	// Save the file physically
+	// Save file physically (sama seperti sebelumnya)
 	src, err := req.File.Open()
 	if err != nil {
-		log.Printf("Failed to open source file: %v", err)
 		return dto.ProfilePictureResponse{}, fmt.Errorf("failed to open source file: %w", err)
 	}
 	defer src.Close()
 
-	// Ensure the destination directory exists
 	dir := filepath.Dir(req.Destination)
-	log.Printf("Creating directory: %s", dir)
 	if err := os.MkdirAll(dir, os.ModePerm); err != nil {
-		log.Printf("Failed to create directory: %v", err)
 		return dto.ProfilePictureResponse{}, fmt.Errorf("failed to create directory: %w", err)
 	}
 
-	// Create the destination file
 	dst, err := os.Create(req.Destination)
 	if err != nil {
-		log.Printf("Failed to create destination file: %v", err)
 		return dto.ProfilePictureResponse{}, fmt.Errorf("failed to create destination file: %w", err)
 	}
 	defer dst.Close()
 
-	// Copy file content
-	bytesWritten, err := io.Copy(dst, src)
-	if err != nil {
-		log.Printf("Failed to copy file content: %v", err)
+	if _, err := io.Copy(dst, src); err != nil {
 		return dto.ProfilePictureResponse{}, fmt.Errorf("failed to copy file content: %w", err)
 	}
-	log.Printf("File copied successfully, bytes: %d", bytesWritten)
 
-	// Prepare metadata for database
-	fileRecord := entity.ProfilePicture{
+	// UPSERT: Insert or Update in one query
+	profilePicture := entity.ProfilePicture{
+		ID:        req.ID,
+		UserID:    req.UserID,
+		DetailID:  req.DetailID,
 		FileName:  filepath.Base(req.Destination),
 		FilePath:  req.Destination,
-		DetailID:  req.DetailID,
-		UserID:    req.UserID,
-		ID:        req.ID,
 		CreatedBy: req.CreatedBy,
+		CreatedAt: time.Now(),
+		UpdatedBy: req.UpdatedBy,
+		UpdatedAt: time.Now(),
 	}
-	log.Printf("Saving metadata: %+v", fileRecord)
 
-	// Save metadata to database
-	if err := r.DB.Create(&fileRecord).Error; err != nil {
-		log.Printf("Failed to save metadata: %v", err)
-		return dto.ProfilePictureResponse{}, fmt.Errorf("failed to save file metadata to database: %w", err)
+	err = r.DB.Clauses(clause.OnConflict{
+		Columns:   []clause.Column{{Name: "user_id"}},
+		DoUpdates: clause.AssignmentColumns([]string{"file_name", "file_path", "updated_by", "updated_at"}),
+	}).Create(&profilePicture).Error
+
+	if err != nil {
+		return dto.ProfilePictureResponse{}, fmt.Errorf("failed to upsert profile picture: %w", err)
 	}
-	log.Println("Metadata saved successfully")
 
 	return dto.ProfilePictureResponse{
 		FilePath: req.Destination,
