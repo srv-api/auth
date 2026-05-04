@@ -7,7 +7,6 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.15.0
-	github.com/srv-api/detail v0.0.0-20260426214428-3c4a6934d5bd
 	github.com/srv-api/middlewares v0.0.0-20260413091150-3878b6563895
 	github.com/srv-api/util v0.0.0-20260427032549-c1c92dd382a8
 	golang.org/x/crypto v0.46.0
@@ -49,6 +48,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.9.4 // indirect
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e // indirect
+	github.com/srv-api/detail v0.0.0-20260504043520-bc3ff2c9f71d // indirect
 	github.com/streadway/amqp v1.1.0 // indirect
 	github.com/teris-io/shortid v0.0.0-20220617161101-71ec9f2aa569 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect

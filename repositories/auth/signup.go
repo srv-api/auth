@@ -33,7 +33,11 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 		MinAge:       18,
 		MaxAge:       60,
 		Radius:       24,
-		GenderTarget: "all",
+		GenderTarget: "both",
+		IsPremium:    false,
+		IsBoosted:    false,
+		IsStarLike:   false,
+		IsSee:        false,
 	}
 
 	if err := r.DB.Save(&merchant).First(&merchant).Error; err != nil {
