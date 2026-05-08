@@ -38,6 +38,7 @@ func (r *authRepository) Signup(req dto.SignupRequest) (dto.SignupResponse, erro
 		IsBoosted:    false,
 		IsStarLike:   false,
 		IsSee:        false,
+		IsRewind:     false,
 	}
 
 	if err := r.DB.Save(&merchant).First(&merchant).Error; err != nil {
