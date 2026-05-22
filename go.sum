@@ -87,8 +87,8 @@ github.com/srv-api/detail v0.0.0-20260508072736-4eee4a171f01 h1:J/rWVnDwl7Z4lLvM
 github.com/srv-api/detail v0.0.0-20260508072736-4eee4a171f01/go.mod h1:gPsFm6kjVYKLhZNZa6a4Ew5qM6P3qAbxdh+Yus45CH8=
 github.com/srv-api/middlewares v0.0.0-20260413091150-3878b6563895 h1:F5RxrDG6J5mKJ8U0eB9RLGjK32JaM6ykedr5LGcniJQ=
 github.com/srv-api/middlewares v0.0.0-20260413091150-3878b6563895/go.mod h1:1Tb4LYh5RHtsaEbchi8RYeiyx5fTQwhsPBo0c+v7tYs=
-github.com/srv-api/util v0.0.0-20260505065052-f56daad96159 h1:oZl0Hr9DlYGxQ3lvCA9W5UC7ZGBLKLBSIFkYEzJez3w=
-github.com/srv-api/util v0.0.0-20260505065052-f56daad96159/go.mod h1:1oeopE9PXL4jnI6NlRMcLqIojcJimuWRvo9Hvp+G3lU=
+github.com/srv-api/util v0.0.0-20260522142821-81e36a4fa69e h1:UnVkwCEIgKRcLEOVsnIdqRiY/d0O0o5O89gSOTK6jyQ=
+github.com/srv-api/util v0.0.0-20260522142821-81e36a4fa69e/go.mod h1:1oeopE9PXL4jnI6NlRMcLqIojcJimuWRvo9Hvp+G3lU=
 github.com/streadway/amqp v1.1.0 h1:py12iX8XSyI7aN/3dUT8DFIDJazNJsVJdxNVEpnQTZM=
 github.com/streadway/amqp v1.1.0/go.mod h1:WYSrTEYHOXHd0nwFeUXAe2G2hRnQT+deZJJf88uS9Bg=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
