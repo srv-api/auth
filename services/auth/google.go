@@ -128,7 +128,7 @@ func (s *authService) SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.
 	defer tokenResp.Body.Close()
 
 	var tokenData struct {
-		AccessToken string `json:"access_token"`
+		AccessToken string `json:"refresh_token"`
 	}
 	if err := json.NewDecoder(tokenResp.Body).Decode(&tokenData); err != nil {
 		return nil, err
