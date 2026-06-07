@@ -4,6 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -126,6 +128,11 @@ func (s *authService) SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.
 		return nil, err
 	}
 	defer tokenResp.Body.Close()
+	body, _ := io.ReadAll(tokenResp.Body)
+
+	log.Println("GOOGLE TOKEN RESPONSE")
+	log.Println(tokenResp.StatusCode)
+	log.Println(string(body))
 
 	var tokenData struct {
 		AccessToken string `json:"access_token"`

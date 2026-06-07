@@ -28,9 +28,14 @@ func (h *domainHandler) GoogleSignIn(c echo.Context) error {
 }
 
 func (h *domainHandler) GoogleSignInWeb(c echo.Context) error {
-	var req dto.GoogleSignInWebRequest
-	if err := c.Bind(&req); err != nil {
-		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid request"})
+	req := dto.GoogleSignInWebRequest{
+		Code: c.QueryParam("code"),
+	}
+
+	if req.Code == "" {
+		return c.JSON(http.StatusBadRequest, map[string]string{
+			"error": "code is missing",
+		})
 	}
 
 	resp, err := h.serviceAuth.SignInWithGoogleWeb(req)
