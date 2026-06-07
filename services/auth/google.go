@@ -128,7 +128,10 @@ func (s *authService) SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.
 		return nil, err
 	}
 	defer tokenResp.Body.Close()
-	body, _ := io.ReadAll(tokenResp.Body)
+	body, err := io.ReadAll(tokenResp.Body)
+	if err != nil {
+		return nil, err
+	}
 
 	log.Println("GOOGLE TOKEN RESPONSE")
 	log.Println(tokenResp.StatusCode)
@@ -137,7 +140,7 @@ func (s *authService) SignInWithGoogleWeb(req dto.GoogleSignInWebRequest) (*dto.
 	var tokenData struct {
 		AccessToken string `json:"access_token"`
 	}
-	if err := json.NewDecoder(tokenResp.Body).Decode(&tokenData); err != nil {
+	if err := json.Unmarshal(body, &tokenData); err != nil {
 		return nil, err
 	}
 	if tokenData.AccessToken == "" {
